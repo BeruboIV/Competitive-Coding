@@ -5,6 +5,7 @@ struct edge{
 int n,m,S;
 vector<edge> e;
 const int INF = 9999;
+vector<int> parent(5e5, -1);
 
 vector<int> bellman(){
 	vector<int> dist(n, INF);
@@ -16,6 +17,7 @@ vector<int> bellman(){
 				if(dist[e[j].to] > dist[e[j].from] + e[j].cost){
 					flag = true;
 					dist[e[j].to] = dist[e[j].from] + e[j].cost;
+					parent[e[j].to] = e[j].from;
 				}
 			}
 		}
@@ -38,6 +40,22 @@ void solve(){
 	vector<int> dist = bellman();
 	for(int x : dist)
 		cout << x << "\n";
+	/*
+	From the parent array
+	int des;
+	cin >> des;
+	if(dist[des] == INF)
+		cout << "No path from " << S << " to " << des;
+	else{
+		vector<int> path;
+		for(int curr = des; curr != -1; curr = parent[curr])
+			path.push_back(curr);
+		reverse(path.begin(), path.end());
+		cout << "Path from " << S << " to " << des << ":\n";
+		for(int x : path)
+			cout << x << " ";
+	}
+	*/
 }
 
 /*
