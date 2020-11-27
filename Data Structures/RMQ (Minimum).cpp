@@ -1,4 +1,4 @@
-/0 Based indexing is followed here.
+//0 Based indexing is followed here.
 const int N = 2e5;
 int LOG2[N + 1];    //Quick lookup table for floor(log2(i)), 1 <= i <= N
 int dp[26][N + 1];    //dp[i][j] = [j, j + (1 << i) ) --> Notice the open interval
