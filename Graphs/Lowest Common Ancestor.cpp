@@ -74,8 +74,8 @@ void solve(){
 	for(int i = 0; i < n - 1; i++){
 		int x,y;
 		cin >> x >> y;
-		adj[x].pb(y);
-		adj[y].pb(x);
+		adj[x].push_back(y);
+		adj[y].push_back(x);
 	}
 	precompute_LCA(n);
 	int q;
