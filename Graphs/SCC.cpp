@@ -38,8 +38,8 @@ void solve(){
     }
     used.assign(n + 1, false);
     for (int i = 1; i <= n; ++i){
-	 if (!used[i]){
-			dfs1(i);
+	    if (!used[i]){
+            dfs1(i);
 		}
 	}
     used.assign(n + 1, false);
@@ -53,7 +53,7 @@ void solve(){
         }
     }
     order.clear();
-    used.assign(n + 1, false);
+    // used.assign(n + 1, false);
     for(int i = 1; i <= n; i++){
         adj[i].clear();
         transAdj[i].clear();
@@ -114,7 +114,7 @@ void solve(){
         }
     }
     order.clear(); 
-    used.assign(n, false);
+    //used.assign(n, false);
     for(int i = 0; i < n; i++){
         adj[i].clear();
         transAdj[i].clear();
