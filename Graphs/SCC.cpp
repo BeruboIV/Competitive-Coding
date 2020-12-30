@@ -4,27 +4,31 @@ const int N = 3e5;
 vector<int> adj[N+1], transAdj[N+1];
 vector<bool> used(N+1);
 vector<int> order, component;
- 
+
 void dfs1(int src) {
     used[src] = true;
-    for (int child : adj[src])
-        if(!used[child]) 
+    for (int child : adj[src]){
+		if(!used[child]){
             dfs1(child);
+		}
+	}
     order.push_back(src);
 }
- 
+
 void dfs2 (int src) {
     used[src] = true;
     component.push_back(src);
-    for (int child : transAdj[src])
-        if (!used[child])
+    for (int child : transAdj[src]){
+        if (!used[child]){
             dfs2(child);
+		}
+	}
 }
 
 void solve(){
-    int n;
-    cin >> n;
-    for(int i = 1; i <= n; i++)
+    int n, m;
+    cin >> n >> m;
+    for(int i = 1; i <= m; i++)
     {
         int x,y;
         cin >> x >> y;
@@ -33,9 +37,11 @@ void solve(){
         transAdj[y].pb(x);
     }
     used.assign(n + 1, false);
-    for (int i = 1; i <= n; ++i)
-        if (!used[i])
-            dfs1(i);
+    for (int i = 1; i <= n; ++i){
+	 if (!used[i]){
+			dfs1(i);
+		}
+	}
     used.assign(n + 1, false);
     int cnt = 0;
     for (int i = 1; i <= n; ++i) {
@@ -46,8 +52,8 @@ void solve(){
             cnt++;
         }
     }
-    order.clear(); 
-    used.assign(n, false);
+    order.clear();
+    used.assign(n + 1, false);
     for(int i = 1; i <= n; i++){
         adj[i].clear();
         transAdj[i].clear();
@@ -81,9 +87,9 @@ void dfs2 (int src) {
 }
 
 void solve(){
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++)
+    int n, m;
+    cin >> n >> m;
+    for(int i = 0; i < m; i++)
     {
         int x,y;
         cin >> x >> y;
@@ -92,9 +98,11 @@ void solve(){
         transAdj[y].pb(x);
     }
     used.assign(n, false);
-    for (int i = 0; i < n; ++i)
-        if (!used[i])
-            dfs1(i);
+    for (int i = 0; i < n; ++i){
+        if (!used[i]){
+			dfs1(i);
+		}
+	}
     used.assign(n, false);
     int cnt = 0;
     for (int i = 0; i < n; ++i) {
