@@ -1,0 +1,197 @@
+[33mcommit b8e4999f3ab498da8124b0e2089a5c57d7b14cfa[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sun Jan 31 22:52:19 2021 +0530
+
+    Added recursive and iterative version for find() when parent = -1
+
+[33mcommit 6398521927cf607226d8c859a1469be2ce3f2169[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sun Jan 31 22:31:49 2021 +0530
+
+    Added DSU
+
+[33mcommit e5f0a00ecf80d4014ddeb003ff4202fe4b33aa56[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sun Jan 31 16:53:15 2021 +0530
+
+    Added DSU with Path Compression and Union by Rank
+
+[33mcommit 81a941490cf04f8025cbd52e8db9efb7f2702798[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Thu Jan 21 12:39:11 2021 +0530
+
+    Dijkstra using set
+
+[33mcommit 368f15796b8129fcb8737ddca2c86aecb65d3005[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Wed Dec 30 15:44:20 2020 +0530
+
+    Add input for edges and justitied braces
+
+[33mcommit 78fc0863d1a95d190f86f95fd6519a8792927ced[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Wed Dec 30 15:39:20 2020 +0530
+
+    Add input for edges and justitied braces
+
+[33mcommit bcffe95b83295bc1793c3aba1213dcc3780132e3[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sun Dec 27 22:37:23 2020 +0530
+
+    Removed duplicate Khan.cpp
+
+[33mcommit e436e1af0bb2421e1e22be8d69080fee89e9a9fa[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sun Dec 27 22:36:07 2020 +0530
+
+    Renamed Khan to Kahn
+
+[33mcommit a676808239834055161dabcf051195e3625b0d9b[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sat Dec 26 22:56:58 2020 +0530
+
+    Added 2D vectors
+
+[33mcommit 39aa7a4dbfd1f5646b75da1500bc87a24f0d2afb[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Dec 18 19:36:52 2020 +0530
+
+    Added Khan Algorithm for Topological SOrting
+
+[33mcommit 53313d35b96d4805e926c2d962ea3c5b8d8c9e14[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Tue Dec 15 18:10:33 2020 +0530
+
+    Added Dijkstra
+
+[33mcommit 30a78c37e3d8a584a60e106bd2450511d24f4759[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sun Dec 13 01:25:28 2020 +0530
+
+    Added my Competitive Template and nCr template
+
+[33mcommit bc103035893066b1bbae7f4a0fb80d976402fd3f[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Sun Dec 13 00:13:27 2020 +0530
+
+    Added Big Integer
+
+[33mcommit 2eb5bb14f534795d900b3756d1dcd20eb3648ff9[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Thu Dec 10 00:31:04 2020 +0530
+
+    Handled the case when par = -1 because level[-1] could give errors
+
+[33mcommit e8b3e1b8a924f19d20cef3aa68ada0caaeaffc49[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Thu Dec 10 00:29:30 2020 +0530
+
+    Handled the case when par = -1 because level[-1] could give errors
+
+[33mcommit d4b534b4c7870c29134540936f907d3113de2fec[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Mon Dec 7 16:46:48 2020 +0530
+
+    changed arr to pi
+
+[33mcommit 827bd66d902c970ead37376ff72732cc8d508956[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Nov 27 14:42:17 2020 +0530
+
+    added backslash
+
+[33mcommit 4419d694304ddbb5c746708a06c42aa942b87da6[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Nov 27 14:39:20 2020 +0530
+
+    Added LCA using RMQ
+
+[33mcommit b30cfec3e635b358699b58b24892c2814d5edc19[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Nov 27 13:34:09 2020 +0530
+
+    Added function to return index of minimum element
+
+[33mcommit e1df30e76f7d5c21bb6b5a0e89af53cf2b5dd45a[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Nov 27 13:27:40 2020 +0530
+
+    Added Function to return index of smallest element and changed log2[] to LOG2[] because of function overloading
+
+[33mcommit 498950f3bf2d53d944cc3a1719b9826beb268be8[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Nov 27 03:28:09 2020 +0530
+
+    Changed file name of Euler Tour to Euler Tour of Trees
+
+[33mcommit c5e45781b036cae8087bb724d14977ef641160e4[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Nov 27 03:22:09 2020 +0530
+
+    Added Euler Tour
+
+[33mcommit cd293fb150fb844d1a8250a4f0ea345382b94b07[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Wed Nov 25 18:21:31 2020 +0530
+
+    Added new Sparse Table which works in case of multiple test cases
+
+[33mcommit 2b284f0a9faf81ecf8304359b68fb0ef47e9a709[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Wed Nov 25 14:08:35 2020 +0530
+
+    Added 2D BIT
+
+[33mcommit 136551e4b8ea617403d3ac9192075e559e6d533d[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Nov 6 03:01:54 2020 +0530
+
+    Added LIS NlogN
+
+[33mcommit 709c8a92eefd815894097e8a66d9683f95c02551[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Thu Nov 5 23:25:31 2020 +0530
+
+    Added path in Bellman Ford
+
+[33mcommit 0ecd82864c00ef5d907cc85725559cd8ec2c7b73[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Thu Nov 5 00:04:02 2020 +0530
+
+    Added Bellman Ford without negative cycle check
+
+[33mcommit 7f014330b2e60821ed36ae5568f2e4d910c8d2da[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Tue Oct 20 08:50:31 2020 +0530
+
+    Added Kosaraju SCC
+
+[33mcommit 7a56ef5d4b301a8788933f7ac6fd58da0dfbe737[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Wed Oct 14 23:37:45 2020 +0530
+
+    Added KMP
+
+[33mcommit cd9cbf69881a3acdd28095f4869660bf5d190e86[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Wed Oct 14 00:43:04 2020 +0530
+
+    Added Lowest Common Ancestor
+
+[33mcommit f160f29cd7a418aee88755f22d64ad26f15797f0[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Wed Oct 14 00:27:43 2020 +0530
+
+    Added BIT
+
+[33mcommit 4bfd497dad10e335d7ca74d9f3d9bd8b955c5b1e[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Oct 9 23:53:34 2020 +0530
+
+    Added Sparse Table
+
+[33mcommit 0d6655f16b8dfd7a5c8f669bfe089462924302a4[m
+Author: BeruboIV <hardikraj13@gmail.com>
+Date:   Fri Oct 9 23:47:39 2020 +0530
+
+    first commit
