@@ -52,10 +52,8 @@ void solve(){
 	}
 
 	for(int i = 0; i < m; i++){
-		char a, b;
-		cin >> a >> b;
-		int x = a - 'a' + 1;
-		int y = b - 'a' + 1;
+		int x,y;
+		cin >> x >> y;
 		// cout << x << " " << y << "\n";
 		adj[x].push_back(y);
 		adj[y].push_back(x);
