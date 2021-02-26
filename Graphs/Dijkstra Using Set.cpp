@@ -28,11 +28,11 @@ void dijsktra(int src, int n){
 			if(new_dist < dist[next_node]){
 				// If we perform relaxation, then the adjacent edges might
 				// also get relaxed
-				dist[next_node] = new_dist;
-				parent[next_node] = curr_node;
 				auto it = pq.find({dist[next_node], next_node});
 				if(it != pq.end())
 					pq.erase(it);
+				dist[next_node] = new_dist;
+				parent[next_node] = curr_node;
 				pq.insert({new_dist, next_node});
 			}
 		}
