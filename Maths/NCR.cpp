@@ -16,7 +16,7 @@ void init(){
     }
 }
 
-// Use this approach for finding f2[] if you don't want to use inv[n];
+// Use this approach for finding f2[n] if you don't want to use inv[n];
 
 const long long N = 5e5, M = 1e9+7;
 long long f1[N + 1], f2[N + 1];	// f1[n] = n!; f2[n] = 1/(n!),  
