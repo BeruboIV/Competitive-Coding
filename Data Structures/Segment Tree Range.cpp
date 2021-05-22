@@ -5,16 +5,16 @@ int lazy[4*MAXN];
 int s[MAXN];
 
 // Change this function for Sum/Max/Min
-void merge(int &node, int &left_child, int &right_child){
-    node = (left_child + right_child);    // Sum
-    // node = min(left_child, right_child);  // Min
-    // node = max(left_child, right_child);  // Max
+void merge(int &node_val, int &left_val, int &right_val){
+    node = (left_val + right_val);    // Sum
+    // node = min(left_val, right_val);  // Min
+    // node = max(left_val, right_val);  // Max
 }
 
 // Change this when we perform lazy update
-void lazyUpdate(int &node, int start, int end, int val){
-    node = node + (end - start + 1)*val; // Sum
-    // node = node + val; // Max/Min
+void lazyUpdate(int &node_val, int start, int end, int val){
+    node_val = node_val + (end - start + 1)*val; // Sum
+    // node_val = node_val + val; // Max/Min
 
 }
 
