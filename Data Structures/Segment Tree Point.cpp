@@ -2,6 +2,11 @@ const int N = 1e5 + 5;
 int tree[4 * N], s[N];
 // node v - > 2 * v and (2 * v + 1)
 
+// Change this function as per requirement
+void merge(int &node, int &left_child, int &right_child){
+	node = left_child + right_child;	// Sum
+}
+
 void build(int node, int start, int end){
     if(start == end){
         // Leaf node will have a single element
@@ -14,7 +19,7 @@ void build(int node, int start, int end){
         // Recurse on the right child
         build(2*node+1, mid+1, end);
         // Internal node will have the sum of both of its children
-        tree[node] = tree[2*node] + tree[2*node+1];
+        merge(tree[node], tree[2*node], tree[2*node + 1]);
     }
 }
 
@@ -37,7 +42,7 @@ void updatePoint(int node, int start, int end, int idx, int val){
             update(2*node+1, mid+1, end, idx, val);
         }
         // Internal node will have the sum of both of its children
-        tree[node] = tree[2*node] + tree[2*node+1];
+        merge(tree[node], tree[2*node], tree[2*node + 1]);
     }
 }
 
@@ -56,7 +61,9 @@ int queryRange(int node, int start, int end, int l, int r){
 	int mid = (start + end)/2;
 	int p1 = query(2*node, start, mid, l, r);
 	int p2 = query(2*node + 1, mid + 1, end, l, r); 
-	return (p1 + p2);
+	int curr;
+	merge(curr, p1, p2);
+	return curr;
 }
 
 void solve(){
