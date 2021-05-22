@@ -1,7 +1,22 @@
 const int MAXN = 35005, INF = 9e8;
+const int BOUNDS = 0;   // 0 -> SUM, INF -> MINIMUM, -INF -> MAXIMUM 
 int tree[4*MAXN];
 int lazy[4*MAXN];
 int s[MAXN];
+
+// Change this function for Sum/Max/Min
+void merge(int &node, int &left_child, int &right_child){
+    node = (left_child + right_child);    // Sum
+    // node = min(left_child, right_child);  // Min
+    // node = max(left_child, right_child);  // Max
+}
+
+// Change this when we perform lazy update
+void lazyUpdate(int &node, int start, int end, int val){
+    node = node + (end - start + 1)*val; // Sum
+    // node = node + val; // Max/Min
+
+}
 
 void build(int node, int start, int end){
     lazy[node] = 0;
@@ -17,15 +32,14 @@ void build(int node, int start, int end){
         // Recurse on the right child
         build(2*node+1, mid+1, end);
         // Internal node will have the sum of both of its children
-        tree[node] = (tree[2*node] + tree[2*node+1]);
+        merge(tree[node], tree[2*node], tree[2*node + 1]);
     }
 }
 
 void updateRange(int node, int start, int end, int l, int r, int val){
     if(lazy[node] != 0){ 
         // This node needs to be updated
-        tree[node] += (end - start + 1)*lazy[node];    // Update it
-        // tree[node] += lazy[node] for maximum/minimum
+        lazyUpdate(tree[node], start, end, lazy[node]);    // Update it
         if(start != end){
             lazy[2*node] += lazy[node];     // Mark left child as lazy
             lazy[2*node + 1] += lazy[node]; // Mark right child as lazy
@@ -36,8 +50,8 @@ void updateRange(int node, int start, int end, int l, int r, int val){
         return;
     if(start >= l && end <= r){
         // Segment is fully within range
-        tree[node] += (end - start + 1)*val;
-        // tree[node] += lazy[node] for maximum/minimum
+        lazyUpdate(tree[node], start, end, val);
+        // tree[node] += val;  // for maximum/minimum
         if(start != end){
             // Not leaf node
             lazy[2*node] += val;
@@ -48,19 +62,18 @@ void updateRange(int node, int start, int end, int l, int r, int val){
     int mid = (start + end) / 2;
     updateRange(2*node, start, mid, l, r, val);         // Updating left child
     updateRange(2*node + 1, mid + 1, end, l, r, val);   // Updating right child
-    tree[node] = (tree[2*node] + tree[2*node + 1]); // Updating root with sum value 
+    merge(tree[node], tree[2*node], tree[2*node + 1]); // Updating root with sum value 
 }
 
 int queryRange(int node, int start, int end, int l, int r){
     if(start > end || start > r || end < l)     // Out of range
-        return 0; 
+        return BOUNDS; 
     if(lazy[node] != 0){
         // This node needs to be updated
-        tree[node] += (end - start + 1)*lazy[node];     // Update it
-        // tree[node] += lazy[node] for maximum/minimum
+        lazyUpdate(tree[node], start, end, lazy[node]);     // Update it
         if(start != end){
-            lazy[node*2] += lazy[node];         // Mark child as lazy
-            lazy[node*2+1] += lazy[node];    // Mark child as lazy
+            lazy[2*node] += lazy[node];         // Mark child as lazy
+            lazy[2*node + 1] += lazy[node];    // Mark child as lazy
         }
         lazy[node] = 0;                 // Reset it
     } 
@@ -69,7 +82,9 @@ int queryRange(int node, int start, int end, int l, int r){
     int mid = (start + end) / 2;
     int p1 = queryRange(2*node, start, mid, l, r);         // Query left child
     int p2 = queryRange(2*node + 1, mid + 1, end, l, r);  // Query right child
-    return (p1 + p2);
+    int curr;
+    merge(curr, p1, p2);
+    return curr;
 }
 
 int main(){
