@@ -3,8 +3,8 @@ int tree[4 * N], s[N];
 // node v - > 2 * v and (2 * v + 1)
 
 // Change this function as per requirement
-void merge(int &node, int &left_child, int &right_child){
-	node = left_child + right_child;	// Sum
+void merge(int &node_val, int &left_val, int &right_val){
+	node_val = left_val + right_val;	// Sum
 }
 
 void build(int node, int start, int end){
