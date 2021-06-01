@@ -51,20 +51,19 @@ void solve(){
         adj[y].push_back({x, cst});
         cost.push_back({cst, {x, y}});
     }
-    sort(cost.begin(), cost.end());
     
     // Kruskal's
+    sort(cost.begin(), cost.end());
+    
     long long sum = 0;
     for(auto edge : cost){
         long long cst = edge.first;
         int u = edge.second.first;
         int v = edge.second.second;
         // We need the topmost parent
-        while(parent[u] != u)
-            u = parent[u];
-        while(parent[v] != v)
-            v = parent[v];
-        if(parent[u] != parent[v]){ // Same as if(u != v)
+        int parent_u = findParent(u);
+        int parent_v = findParent(v);
+        if(parent_u != parent_v){ // Here parent_u = parent[parent_u]
             // We have to add this edge
             sum += cst;
             unionNodes(u, v);
