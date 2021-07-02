@@ -36,6 +36,8 @@ long long substring_hash(int l, int r){
 	long long result = hash_val[r];
 	if(l > 0)
 		result -= hash_val[l - 1];
+	if(result < 0)
+		result += MOD;
 	result = (result * inv[l]) % MOD;
 
 	return result;
