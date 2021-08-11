@@ -35,11 +35,11 @@ void updatePoint(int node, int start, int end, int idx, int val){
         int mid = (start + end) / 2;
         if(idx <= mid){
             // If idx is in the left child, recurse on the left child
-            update(2*node, start, mid, idx, val);
+            updatePoint(2*node, start, mid, idx, val);
         }
         else{
             // if idx is in the right child, recurse on the right child
-            update(2*node+1, mid+1, end, idx, val);
+            updatePoint(2*node+1, mid+1, end, idx, val);
         }
         // Internal node will have the sum of both of its children
         merge(tree[node], tree[2*node], tree[2*node + 1]);
@@ -59,8 +59,8 @@ int queryRange(int node, int start, int end, int l, int r){
 	}
 	// partial overlap
 	int mid = (start + end)/2;
-	int p1 = query(2*node, start, mid, l, r);
-	int p2 = query(2*node + 1, mid + 1, end, l, r); 
+	int p1 = queryRange(2*node, start, mid, l, r);
+	int p2 = queryRange(2*node + 1, mid + 1, end, l, r); 
 	int curr;
 	merge(curr, p1, p2);
 	return curr;

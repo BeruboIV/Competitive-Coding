@@ -6,7 +6,7 @@ int s[MAXN];
 
 // Change this function for Sum/Max/Min
 void merge(int &node_val, int &left_val, int &right_val){
-    node = (left_val + right_val);    // Sum
+    node_val = (left_val + right_val);    // Sum
     // node = min(left_val, right_val);  // Min
     // node = max(left_val, right_val);  // Max
 }
