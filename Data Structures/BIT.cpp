@@ -49,6 +49,7 @@ void solve(){
 	int n;
 	cin >> n;
 	BIT.N = n;
+	BIT.init();
 	// NOTE: 1 Based indexing is followed here
 	for(int i = 1; i <= n; i++){
 		int64_t val;
