@@ -1,53 +1,75 @@
 // CLASS BASED Fenwick Tree
 class Fenwick{
+	// 1 Based Indexing
 public:
     int N;
-    vector<int64_t> tree;
+    vector<int64_t> tree[2];
     Fenwick()
-    	: N(200005){
-    		tree.resize(2000005);
-    	}
+        : N(200005){
+            tree[0].resize(N);
+            tree[1].resize(N);
+        }
 
     Fenwick(int n)
         : N(n){
-            tree.resize(N + 1, 0);
+            tree[0].resize(N + 1, 0);
+            tree[1].resize(N + 1, 0);
         }
 
     void init(){
-    	tree.resize(N + 1, 0);
+        tree[0].resize(N + 1, 0);
+        tree[1].resize(N + 1, 0);
     }
 
-    int64_t query(int idx){
+    int64_t query(int idx, int flag = 0){
         int sum = 0;
         while(idx > 0){
-            sum += tree[idx];
+            sum += tree[flag][idx];
             idx -= (idx & (-idx));
         }
         return sum;
     }
 
-    void update(int idx, int64_t val){
+    void update(int idx, int64_t val, int flag = 0){
         while(idx <= N){
-            tree[idx] += val;
+            tree[flag][idx] += val;
             idx += (idx & (-idx));
         }
     }
 
-    int64_t rangeQuery(int l, int r){
+    int64_t rangeQuery(int l, int r, int flag = 0){
         if(l > r)
             return 0;
-        int64_t leftSum = query(l - 1);
-        int64_t rightSum = query(r);
+        int64_t leftSum = query(l - 1, flag);
+        int64_t rightSum = query(r, flag);
         return (rightSum - leftSum);
     }
 
+    // Use the below only in case of range update and range query
+    // Call update_range() instead of update()
+    // Point update -> update_range(i, i, val);
+    // void update_range(int l, int r, int64_t val){
+    //     update(l, val, 0);
+    //     update(r + 1, -val, 0);
+    //     update(l, val * (l - 1), 1);
+    //     update(r + 1, -val * r, 1);
+    // }
+
+    // int64_t prefix_sum(int idx){
+    //     return query(idx, 0) * idx - query(idx, 1);
+    // }
+
+    // int64_t range_sum(int l, int r){
+    //     return prefix_sum(r) - prefix_sum(l - 1);
+    // }
+
 };
 
-Fenwick BIT;
 
 void solve(){
 	int n;
 	cin >> n;
+	Fenwick BIT;
 	BIT.N = n;
 	BIT.init();
 	// NOTE: 1 Based indexing is followed here
