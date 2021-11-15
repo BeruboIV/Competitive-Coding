@@ -1,10 +1,4 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef ONLINE_JUDGE
-#define debug(x) cerr << "Line(" << __LINE__ << ") " << #x << " = "; _print(x); cerr << "\n";
-#else
-#define debug(x)
-#endif 
-
 void _print(int &x){
     cerr << x;
 }
@@ -132,4 +126,48 @@ void _print(vector<pair<T, V>> &vec){
     }
     cerr << "]";
 }
+
+vector<string> vec_splitter(string s) {
+    vector<string> res;
+    s += ',';
+
+    while(!s.empty()) {
+        res.push_back(s.substr(0, s.find(',')));
+        s = s.substr(s.find(',') + 1);
+    }
+
+    return res;
+}
+
+// Recursive Variadic Lambda: https://stackoverflow.com/questions/49495015/c-recursive-variadic-lambda
+
+template<class T, class... Types>
+void _Print(T var1, Types&&... var2){
+    vector<string> res = var1;
+    int i = 0;
+
+    auto Print_recursive = [&](auto& self, auto&& h, auto&&... var2) {
+        // std::cout << sizeof...(var2) << "\n";
+
+        if constexpr ( sizeof...(var2) >= 0 ){
+            cerr << res[i] << " = ";
+            i++;
+            _print(h);
+            if constexpr ( sizeof...(var2) > 0 ){
+                cerr << ", ";
+                self(self,var2...);
+            }
+        }
+    };
+    return Print_recursive(Print_recursive, var2...);
+};
+
+// Comment out this before submitting 
+// #define XOX
+
+#ifndef XOX
+#define debug(x...) cerr << "Line(" << __LINE__ << ") "; _Print(vec_splitter(#x), x); cerr << "\n";
+#else
+#define debug(...) 42
+#endif 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
