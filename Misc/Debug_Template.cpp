@@ -1,41 +1,11 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-void _print(int &x){
+template<class T>
+void _print(T &x){
     cerr << x;
 }
 
-void _print(const int &x){
-    cerr << x;
-}
-
-void _print(int64_t &x){
-    cerr << x;
-}
-
-void _print(const int64_t &x){
-    cerr << x;
-}
-
-void _print(char &x){
-    cerr << x;
-}
-
-void _print(const char &x){
-    cerr << x;
-}
-
-void _print(string &x){
-    cerr << x;
-}
-
-void _print(const string &x){
-    cerr << x;
-}
-
-void _print(bool &x){
-    cerr << x;
-}
-
-void _print(const bool &x){
+template<class T>
+void _print(const T &x){
     cerr << x;
 }
 
@@ -162,10 +132,10 @@ void _Print(T var1, Types&&... var2){
     return Print_recursive(Print_recursive, var2...);
 };
 
-// Comment out this before submitting 
-// #define XOX
+// Comment out this before submitting
+#define XOX
 
-#ifndef XOX
+#ifdef XOX
 #define debug(x...) cerr << "Line(" << __LINE__ << ") "; _Print(vec_splitter(#x), x); cerr << "\n";
 #else
 #define debug(...) 42
