@@ -22,7 +22,7 @@ public:
     }
 
     int64_t query(int idx, int flag = 0){
-        int sum = 0;
+        int64_t sum = 0;
         while(idx > 0){
             sum += tree[flag][idx];
             idx -= (idx & (-idx));
