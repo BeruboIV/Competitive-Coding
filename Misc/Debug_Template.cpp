@@ -15,7 +15,9 @@ void _print(vector<T> &v1){
     int sz = v1.size();
     for(int i = 0; i < sz - 1; i++)
         cerr << v1[i] << ", ";
-    cerr << v1.back() << "]";
+    if(!v1.empty())
+        cerr << v1.back();
+    cerr << "]";
 }
 
 template<class T>
