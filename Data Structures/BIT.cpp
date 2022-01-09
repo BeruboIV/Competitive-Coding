@@ -144,7 +144,6 @@ void solve(){
 }
 
 // Problem 1: Sequence Master: https://www.codechef.com/JAN221B/problems/MASTER
-// Solution 1: https://www.codechef.com/viewsolution/56094236
 
 // Normal BIT
 
