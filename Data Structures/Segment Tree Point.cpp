@@ -131,7 +131,6 @@ void solve(){
     // seg.queryRange(1, 1, n, l, r)
 }
 
-// Problem 1: (Sequence Master): https://www.codechef.com/JAN221B/problems/MASTER
 
 // -------------------------------------------------------------------------------
 
@@ -230,4 +229,3 @@ void solve(){
 	}
 }
 
-// Problem 1: (Sequence Master): https://www.codechef.com/JAN221B/problems/MASTER
