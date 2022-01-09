@@ -83,6 +83,8 @@ public:
     // Call update_range() instead of update()
     // Point update -> update_range(i, i, val);
     // void update_range(int l, int r, T val){
+    //     if(l > r)
+    //         return;
     //     update(l, val, 0);
     //     update(r + 1, -val, 0);
     //     update(l, val * (l - 1), 1);
@@ -94,6 +96,8 @@ public:
     // }
 
     // T range_sum(int l, int r){
+    //     if(l > r)
+    //         return 0;
     //     return prefix_sum(r) - prefix_sum(l - 1);
     // }
 
@@ -103,7 +107,7 @@ public:
 void solve(){
     int n;
     cin >> n;
-    Fenwick<int> BIT(n);
+    Fenwick<long long> BIT(n);
 
     // NOTE: 1 Based indexing is followed here
     for(int i = 1; i <= n; i++){
@@ -131,8 +135,16 @@ void solve(){
         cout << BIT.rangeQuery(x, y) << "\n";
         // To ADD value 'y' to value at index 'x'
         // BIT.update(x, y);
+
+        // In case of range updates
+        // BIT.update_range(l, r, val);
+        // In case of range query:
+        // BIT.range_sum(l, r);
     }
 }
+
+// Problem 1: Sequence Master: https://www.codechef.com/JAN221B/problems/MASTER
+// Solution 1: https://www.codechef.com/viewsolution/56094236
 
 // Normal BIT
 
