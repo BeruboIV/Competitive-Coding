@@ -25,7 +25,7 @@ public:
     }
 
     SegmentTree(int n){
-        N = 2e5 + 5;
+        N = n + 1;
         tree.resize(4 * N + 5);
         arr.resize(N);
     }
