@@ -1,20 +1,13 @@
 class RabinKarp{
-private:
-    const long long N = 2e5;
-    const long long MOD = 1e9 + 7;
-    const long long prime = 31;
 public:
+    long long N = 2e5;
+    long long prime = 31;
+    long long MOD = 1e9 + 7;
 
     RabinKarp(){}
 
     RabinKarp(long long N)
         :N(N){}
-
-    RabinKarp(long long N, long long MOD)
-        :N(N), MOD(MOD){}
-
-    RabinKarp(long long N, long long MOD, long long prime)
-        :N(N), MOD(MOD), prime(prime){}
 
     // The function returns the indexes at which the pattern 'p' is found 
     // in the text string 't'
