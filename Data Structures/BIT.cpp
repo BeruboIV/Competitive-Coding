@@ -1,15 +1,11 @@
 // CLASS BASED Fenwick Tree
-// NOTE: 1 Based indexing is followed here
+// NOTE: 0 Based indexing is followed here --> [0, r] range is supported
 template<typename T = long long>
 class Fenwick{
 public:
     int N;
     vector<T> tree[2];
-    Fenwick()
-        : N(200005){
-            tree[0].resize(N);
-            tree[1].resize(N);
-        }
+    Fenwick(){}
 
     Fenwick(int n)
         : N(n){
@@ -25,9 +21,9 @@ public:
 
     T query(int idx, int flag = 0){
         T sum = 0;
-        while(idx > 0){
+        while(idx >= 0){
             sum += tree[flag][idx];
-            idx -= (idx & (-idx));
+            idx = (idx & (idx + 1)) - 1;
         }
         return sum;
     }
@@ -35,7 +31,7 @@ public:
     void update(int idx, T val, int flag = 0){
         while(idx <= N){
             tree[flag][idx] += val;
-            idx += (idx & (-idx));
+            idx = (idx | (idx + 1));
         }
     }
 
@@ -108,6 +104,8 @@ void solve(){
     int n;
     cin >> n;
     Fenwick<long long> BIT(n);
+    // vector<Fenwick<long long>> BIT(no_of_fenwick_tree, n);   // Array of fenwick tree which calls the constructor BIT(n);
+
 
     // NOTE: 1 Based indexing is followed here
     for(int i = 1; i <= n; i++){
