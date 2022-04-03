@@ -50,6 +50,10 @@ public:
         this->MOD = MOD;
     }
 
+    void set_prime(long long PRIME){
+        this->PRIME = PRIME;
+    }
+
     long long binpow(long long x, long long n)
     {
         long long result = 1;
