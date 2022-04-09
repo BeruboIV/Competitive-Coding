@@ -158,3 +158,6 @@ void solve(){
 
     cout << seg.query(2, 3).v;  // Range query
 }
+
+// Question: https://www.codechef.com/problems/SORTDIS
+// Solution: https://www.codechef.com/viewsolution/62499174
