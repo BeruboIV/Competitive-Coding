@@ -107,9 +107,9 @@ void solve(){
     // vector<Fenwick<long long>> BIT(no_of_fenwick_tree, n);   // Array of fenwick tree which calls the constructor BIT(n);
 
 
-    // NOTE: 1 Based indexing is followed here
-    for(int i = 1; i <= n; i++){
-        int64_t val;
+    // NOTE: 0 Based indexing is followed here
+    for(int i = 0; i < n; i++){
+        long long val;
         cin >> val;
         BIT.update(i, val);
     }
@@ -129,6 +129,8 @@ void solve(){
     while(q--){
         int x, y;
         cin >> x >> y;
+        x--;
+        y--;
         //Sum for the range [x, y]
         cout << BIT.rangeQuery(x, y) << "\n";
         // To ADD value 'y' to value at index 'x'
@@ -140,6 +142,8 @@ void solve(){
         // BIT.range_sum(l, r);
     }
 }
+// Problem: https://codeforces.com/contest/1660/problem/F2
+// Solution: https://codeforces.com/contest/1660/submission/152552222
 
 
 // Normal BIT
