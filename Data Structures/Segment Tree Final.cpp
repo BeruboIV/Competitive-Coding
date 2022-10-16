@@ -1,4 +1,4 @@
-// Copied from demoralizer's video: https://unacademy.com/class/all-purpose-generic-segment-tree/3UUZEGVH
+// Copied from demoralizer's video: https://unacademy.com/class/all-purpose-generic-segment-tree/3UUZEGVH       
 // Note: 0 based indexing is followed here
 template<typename Node, typename Update>
 class SegmentTree{
@@ -118,7 +118,9 @@ public:
 
 class Update{
 public:
-    int v = 0;  // Change
+    int v = 0;  // Change (For range sum/ gcd)
+    // int v = INT_MAX;    // For range minimum
+    // int v = INT_MIN;    // For range maximum
     // Use more variables if you want more information
     // these default values should be identity_element
     Update(){}
@@ -138,6 +140,7 @@ public:
     void apply(Node &x, const int32_t &tl, const int32_t &tr){
         // Change
         x.v += (tr - tl + 1) * v;   // For range update: Add 'v' to the whole range
+        // x.v += v;   // For range max/min --> The max/min changes by v
     }
 };
 
@@ -145,7 +148,12 @@ void solve(){
     int n = 1000;
     // cin >> n;
     SegmentTree<Node, Update> seg(n);   // Create a segment tree of len = n
-    vector<int> arr(n);
+    vector<Node> arr(n);
+    for(int i = 0; i < n; i++){
+        int x;
+        cin >> x;
+        arr[i] = Node(x);
+    }
     seg.build(arr);
 
     seg.rupd(2, 6, 3);     // [l, r] --> Add value val: [2, 6] -> +3
