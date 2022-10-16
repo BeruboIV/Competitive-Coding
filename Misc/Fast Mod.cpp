@@ -80,9 +80,35 @@ public:
     friend modnum operator / (const modnum& a, const modnum& b) { return modnum(a) /= b; }
 };
 
-template <typename T> T pow(T a, long long b) {
-    assert(b >= 0);
-    T r = 1; while (b) { if (b & 1) r *= a; b >>= 1; a *= a; } return r;
+const long long MOD = 998244353;
+using num = modnum<MOD>;
+
+const long long N = 5e5;
+num f1[N + 1], f2[N + 1];
+
+template <typename T>
+T binpow(T x, long long n)
+{   
+    assert(n >= 0);
+    T result = 1;
+    while(n > 0)
+    {
+        if(n&1)
+            result = (result * x);
+        x = mod_mul(x * x);
+        n /= 2;
+    }
+    return result;
 }
 
-using num = modnum<998244353>;
+num ncr(long long n, long long k) {
+    return f1[n] * f2[k] * f2[n - k];
+}
+
+void init(){
+    f1[0] = f2[0] = 1;
+    for(long long i = 1; i <= N; ++i) {
+            f1[i] = f1[i-1] * i;
+            f2[i] = f2[i-1] * inv(num(i));
+    }
+}
