@@ -17,12 +17,13 @@ public:
 template <typename T = long long>
 class Trie{
 public:
-    int BITS = 31;
+    const static int BITS = 31;
     Node<T> *root;
     Trie(){
         root = new Node<T>();
     }
 
+    // Check of the k-th bit is set or not
     bool isSet(T val, T k){
         return ((val >> k) & 1LL);
     }
@@ -58,7 +59,7 @@ public:
         return (node->children[0] == NULL && node->children[1] == NULL && node->sz == 0 && node->endOfWord == 0);
     }
 
-    Node<T>* remove_helper(Node<T> *node, T val, int curr_bit){
+    Node<T>* remove_helper(Node<T> *node, T val, int curr_bit = BITS - 1){
         // If trie node is empty
         if(node == NULL)
             return NULL;
@@ -103,7 +104,48 @@ public:
             return;
 
         Node<T> *curr = root;
-        remove_helper(root, val, BITS - 1);
+        remove_helper(curr, val);
     }
 
+    // Returns maximum of val ^ x
+    T get_max(T x){
+        Node<T> *curr = root;
+        T ans = 0;
+
+        for(int i = BITS - 1; i >= 0; i--){
+            bool parity = isSet(x, i);
+            if(curr->children[!parity]){
+                curr = curr->children[!parity];
+                ans <<= 1ll;
+                ans++;
+            }
+            else{
+                curr = curr->children[parity];
+                ans <<= 1ll;
+            }
+        }
+
+        return ans;
+    }
+
+    // Returns minimum of val ^ x
+    T get_min(T x){
+        Node<T> *curr = root;
+        T ans = 0;
+
+        for(int i = BITS - 1; i >= 0; i--){
+            bool parity = isSet(x, i);
+            if(curr->children[parity]){
+                curr = curr->children[parity];
+                ans <<= 1ll;
+            }
+            else{
+                curr = curr->children[!parity];
+                ans <<= 1ll;
+                ans++;
+            }
+        }
+
+        return ans;
+    }
 };
