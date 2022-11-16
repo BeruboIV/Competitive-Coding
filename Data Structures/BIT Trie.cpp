@@ -134,6 +134,8 @@ public:
         T ans = 0;
 
         for(int i = BITS - 1; i >= 0; i--){
+            if(curr == NULL)
+                break;
             bool parity = isSet(x, i);
             if(curr->children[!parity]){
                 curr = curr->children[!parity];
@@ -155,6 +157,8 @@ public:
         T ans = 0;
 
         for(int i = BITS - 1; i >= 0; i--){
+            if(curr == NULL)
+                break;
             bool parity = isSet(x, i);
             if(curr->children[parity]){
                 curr = curr->children[parity];
