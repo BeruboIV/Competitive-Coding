@@ -107,6 +107,27 @@ public:
         remove_helper(curr, val);
     }
 
+    // Number of values s.t val ^ x < k
+    T query(T x, T k){
+        Node<T> *curr = root;
+        T ans = 0;
+
+        for(int i = BITS - 1; i >= 0; i--){
+            if(curr == NULL)
+                break;
+            bool parity_x = isSet(x, i), parity_k = isSet(k, i);
+            if(parity_k == true){
+                if(curr->children[parity_x])
+                    ans += (curr->children[parity_x])->sz;
+                curr = curr -> children[!parity_x];
+            }
+            else
+                curr = curr->children[parity_x];
+        }
+
+        return ans;
+    }
+
     // Returns maximum of val ^ x
     T get_max(T x){
         Node<T> *curr = root;
