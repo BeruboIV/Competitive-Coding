@@ -1,6 +1,7 @@
+const static int ALPHABETS = 26;
+const static char FIRST_ALPHABET = 'a';
 class Node{
 public:
-    const static int ALPHABETS = 26;
     Node *children[ALPHABETS];
     int sz = 0;
     int endOfWord = 0;
@@ -15,8 +16,6 @@ public:
 
 class Trie{
 public:
-    const static int ALPHABETS = 26;
-    const static char FIRST_ALPHABET = 'a';
     Node *root;
     Trie(){
         root = new Node();
