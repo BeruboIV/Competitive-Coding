@@ -44,6 +44,8 @@ void solve(){
 	int n, m;
 	cin >> n >> m;
 
+	cutpoints.clear();
+
 	for(int i = 0; i <= n; i++){
 		vis[i] = false;
 		tin[i] = -1;
@@ -70,3 +72,6 @@ void solve(){
 	for(int x : cutpoints)
 		cout << x << "\n";
 }
+
+// Question: https://codeforces.com/contest/1761/problem/C
+// Solution: https://codeforces.com/contest/1761/submission/181800977
