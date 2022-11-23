@@ -51,6 +51,15 @@ void _print(multiset<pair<T, V>> &sett);
 template<class T>
 void _print(queue<T> q);
 
+template<class T>
+void _print(priority_queue<T, vector<T>, greater<T>> minheap);
+
+template<class T>
+void _print(priority_queue<T> maxheap);
+
+template<class T>
+void _print(stack<T> st);
+
 /*
 *   All function definitions
 */ 
@@ -245,6 +254,48 @@ void _print(queue<T> q){
     while(n--){
         _print(q.front());
         q.pop();
+        if(n == 0)
+            break;
+        cerr << ", ";
+    }
+    cerr << "]";
+}
+
+template<class T>
+void _print(priority_queue<T, vector<T>, greater<T>> minheap){
+    cerr << "[";
+    int n = minheap.size();
+    while(n--){
+        _print(minheap.top());
+        minheap.pop();
+        if(n == 0)
+            break;
+        cerr << ", ";
+    }
+    cerr << "]";
+}
+
+template<class T>
+void _print(priority_queue<T> maxheap){
+    cerr << "[";
+    int n = maxheap.size();
+    while(n--){
+        _print(maxheap.top());
+        maxheap.pop();
+        if(n == 0)
+            break;
+        cerr << ", ";
+    }
+    cerr << "]";
+}
+
+template<class T>
+void _print(stack<T> st){
+    cerr << "[";
+    int n = st.size();
+    while(n--){
+        _print(st.top());
+        st.pop();
         if(n == 0)
             break;
         cerr << ", ";
