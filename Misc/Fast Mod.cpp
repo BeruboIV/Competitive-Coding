@@ -81,10 +81,10 @@ public:
 };
 
 const long long MOD = 998244353;
-using num = modnum<MOD>;
+using MINT = modnum<MOD>;
 
 const long long N = 5e5;
-num f1[N + 1], f2[N + 1];
+MINT f1[N + 1], f2[N + 1];
 
 template <typename T>
 T binpow(T x, long long n)
@@ -101,7 +101,7 @@ T binpow(T x, long long n)
     return result;
 }
 
-num ncr(long long n, long long k) {
+MINT ncr(long long n, long long k) {
     return f1[n] * f2[k] * f2[n - k];
 }
 
@@ -109,6 +109,6 @@ void init(){
     f1[0] = f2[0] = 1;
     for(long long i = 1; i <= N; ++i) {
             f1[i] = f1[i-1] * i;
-            f2[i] = f2[i-1] * inv(num(i));
+            f2[i] = f2[i-1] * inv(MINT(i));
     }
 }
