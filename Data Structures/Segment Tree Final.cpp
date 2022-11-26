@@ -122,7 +122,7 @@ public:
     // int v = INT_MAX;    // For range minimum
     // int v = INT_MIN;    // For range maximum
     // Use more variables if you want more information
-    // these default values should be identity_element
+    // these default values should be identity_trasformation
     Update(){}
     Update(int val){
         v = val;    // Change
@@ -169,3 +169,6 @@ void solve(){
 
 // Question: https://www.codechef.com/problems/SORTDIS
 // Solution: https://www.codechef.com/viewsolution/62499174
+
+// Question: https://codeforces.com/contest/1748/problem/E
+// Solution: https://codeforces.com/contest/1748/submission/182624818
