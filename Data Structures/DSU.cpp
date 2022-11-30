@@ -77,3 +77,6 @@ void solve(){
 		cout << sz[p] << " ";
 	}
 }
+
+// Question: https://www.codechef.com/problems/CNCTCT?tab=statement
+// Solution: https://www.codechef.com/viewsolution/81320820
