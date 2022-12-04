@@ -20,6 +20,7 @@ public:
     }
 
     T query(int idx, int flag = 0){
+        assert(idx <= N);
         T sum = 0;
         while(idx >= 0){
             sum += tree[flag][idx];
@@ -35,9 +36,14 @@ public:
         }
     }
 
+    // [l, r]
     T rangeQuery(int l, int r, int flag = 0){
+        assert(r <= N && "R Out of bound");
+        assert(l >= 0 && "L Must be positive");
         if(l > r)
             return 0;
+        if(l == 0)
+            return query(r, flag);
         T leftSum = query(l - 1, flag);
         T rightSum = query(r, flag);
         return (rightSum - leftSum);
@@ -107,9 +113,9 @@ void solve(){
     // vector<Fenwick<long long>> BIT(no_of_fenwick_tree, n);   // Array of fenwick tree which calls the constructor BIT(n);
 
 
-    // NOTE: 0 Based indexing is followed here
-    for(int i = 0; i < n; i++){
-        long long val;
+    // NOTE: 1 Based indexing is followed here
+    for(int i = 1; i <= n; i++){
+        int64_t val;
         cin >> val;
         BIT.update(i, val);
     }
@@ -129,8 +135,6 @@ void solve(){
     while(q--){
         int x, y;
         cin >> x >> y;
-        x--;
-        y--;
         //Sum for the range [x, y]
         cout << BIT.rangeQuery(x, y) << "\n";
         // To ADD value 'y' to value at index 'x'
@@ -142,6 +146,7 @@ void solve(){
         // BIT.range_sum(l, r);
     }
 }
+
 // Problem: https://codeforces.com/contest/1660/problem/F2
 // Solution: https://codeforces.com/contest/1660/submission/152552222
 
