@@ -1,5 +1,5 @@
 {
-    "cmd": ["g++.exe", "-std=c++17", "-DBeruboIV", "${file}", "-o", "${file_base_name}.exe", "&&", "${file_base_name}.exe"],
+    "cmd": ["g++.exe", "-std=c++17", "-DBeruboIV", "-Wshadow", "${file}", "-o", "${file_base_name}.exe", "&&", "${file_base_name}.exe<input.txt>output.txt"],
     "shell": true,
     "working_dir": "$file_path",
     "selector": "source.cpp"
