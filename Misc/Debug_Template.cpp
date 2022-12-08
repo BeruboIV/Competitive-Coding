@@ -52,15 +52,15 @@ template<class T>
 void _print(queue<T> q);
 
 template<class T>
-void _print(priority_queue<T, vector<T>, greater<T>> minheap);
+void _print(priority_queue<T, vector<T>, greater<T>> Minheap);
 
 template<class T>
-void _print(priority_queue<T> maxheap);
+void _print(priority_queue<T> Maxheap);
 
 template<class T>
 void _print(stack<T> st);
 
-/*
+*
 *   All function definitions
 */ 
 
@@ -262,12 +262,12 @@ void _print(queue<T> q){
 }
 
 template<class T>
-void _print(priority_queue<T, vector<T>, greater<T>> minheap){
+void _print(priority_queue<T, vector<T>, greater<T>> Minheap){
     cerr << "[";
-    int n = minheap.size();
+    int n = Minheap.size();
     while(n--){
-        _print(minheap.top());
-        minheap.pop();
+        _print(Minheap.top());
+        Minheap.pop();
         if(n == 0)
             break;
         cerr << ", ";
@@ -276,12 +276,12 @@ void _print(priority_queue<T, vector<T>, greater<T>> minheap){
 }
 
 template<class T>
-void _print(priority_queue<T> maxheap){
+void _print(priority_queue<T> Maxheap){
     cerr << "[";
-    int n = maxheap.size();
+    int n = Maxheap.size();
     while(n--){
-        _print(maxheap.top());
-        maxheap.pop();
+        _print(Maxheap.top());
+        Maxheap.pop();
         if(n == 0)
             break;
         cerr << ", ";
@@ -318,10 +318,11 @@ vector<string> vec_splitter(string s) {
 // Recursive Variadic Lambda: https://stackoverflow.com/questions/49495015/c-recursive-variadic-lambda
 
 template<class T, class... Types>
-void _Print(T var1, Types&&... var2){
+void _Print(T var1, Types&&... Var2){
     vector<string> res = var1;
     int i = 0;
 
+    // Here Var2 = var2. Had to change case because of -Wshadow compiler warning
     auto Print_recursive = [&](auto& self, auto&& h, auto&&... var2) {
         // std::cout << sizeof...(var2) << endl;
 
@@ -335,7 +336,7 @@ void _Print(T var1, Types&&... var2){
             }
         }
     };
-    return Print_recursive(Print_recursive, var2...);
+    return Print_recursive(Print_recursive, Var2...);
 };
 
 // Comment out this before submitting
