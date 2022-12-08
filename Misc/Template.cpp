@@ -23,8 +23,8 @@ int main()
     int t = 1;
     cin >> t;
     while(t--){
-        solve();
         // cout << fixed << setprecision(7); //For trailing 0's
+        solve();
     }
     return 0;
 }
