@@ -32,7 +32,7 @@ public:
 
         for(int i = 0; i <= n; i++){
             parent[i] = i;
-            sz[i] = i;
+            sz[i] = 1;
         }
     }
 
