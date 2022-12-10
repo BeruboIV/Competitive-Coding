@@ -1,8 +1,8 @@
-const int N = 2e5;
-vector<int> adj[N + 1];
+const int MAXN = 2e5;
+vector<int> adj[MAXN + 1];
 
-bool vis[N + 1];
-int tin[N + 1], low[N + 1];
+bool vis[MAXN + 1];
+int tin[MAXN + 1], low[MAXN + 1];
 int TIMER;
 
 set<int> cutpoints;
@@ -73,5 +73,5 @@ void solve(){
 		cout << x << "\n";
 }
 
-// Question: https://codeforces.com/contest/1761/problem/C
+// Question: https://codeforces.com/contest/1761/problem/E
 // Solution: https://codeforces.com/contest/1761/submission/181800977
