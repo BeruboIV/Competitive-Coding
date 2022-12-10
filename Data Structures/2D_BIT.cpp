@@ -1,7 +1,7 @@
 //1 based indexing is followed here
-const int N = 1e3;
-int mat[N + 1][N + 1];
-int BIT[N + 1][N + 1];
+const int MAXN = 1e3;
+int mat[MAXN + 1][MAXN + 1];
+int BIT[MAXN + 1][MAXN + 1];
 int n,m;
 
 void update(int x, int y, int val){
