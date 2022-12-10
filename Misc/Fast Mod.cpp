@@ -1,3 +1,4 @@
+// Copied from ksun48: https://codeforces.com/profile/ksun48
 template <int MOD_> struct modnum {
     static constexpr int MOD = MOD_;
     static_assert(MOD_ > 0, "MOD must be positive");
@@ -81,10 +82,10 @@ public:
 };
 
 const long long MOD = 998244353;
-using MINT = modnum<MOD>;
+using Mint = modnum<MOD>;
 
-const long long N = 5e5;
-MINT f1[N + 1], f2[N + 1];
+const int32_t MAXN = 5e5;
+Mint fact[MAXN + 1], inv_fact[MAXN + 1];
 
 template <typename T>
 T binpow(T x, long long n)
@@ -95,20 +96,20 @@ T binpow(T x, long long n)
     {
         if(n&1)
             result = (result * x);
-        x = mod_mul(x * x);
+        x = (x * x);
         n /= 2;
     }
     return result;
 }
 
-MINT ncr(long long n, long long k) {
-    return f1[n] * f2[k] * f2[n - k];
+Mint nCr(long long n, long long k) {
+    return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
 
 void init(){
-    f1[0] = f2[0] = 1;
-    for(long long i = 1; i <= N; ++i) {
-            f1[i] = f1[i-1] * i;
-            f2[i] = f2[i-1] * inv(MINT(i));
+    fact[0] = inv_fact[0] = 1;
+    for(int i = 1; i <= MAXN; ++i) {
+            fact[i] = fact[i-1] * i;
+            inv_fact[i] = inv_fact[i-1] * inv(Mint(i));
     }
 }
