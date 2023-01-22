@@ -1,8 +1,8 @@
-const int N = 2e5;
+const int MAXN = 2e5;
 const long long INF = 1e18;
-vector<pair<int,long long>> adj[N + 1];
-long long dist[N + 1];
-int parent[N + 1];
+vector<pair<int,long long>> adj[MAXN + 1];
+long long dist[MAXN + 1];
+int parent[MAXN + 1];
 
 void dijsktra(int src, int n){
 	for(int i = 1; i <= n; i++){
